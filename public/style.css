@@ -86,3 +86,32 @@ button:active {
 span {
     font-weight: bold;
 }
+
+@media (min-width: 768px) {
+    #root {
+        width: 100%;
+        aspect-ratio: 1/1;
+        height: fit-content;
+        margin: 1rem;
+    }
+
+    body {
+        justify-content: center;
+    }
+}
+
+/* New styles for mobile */
+@media (max-width: 767px) {
+    button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    #result-p {
+        font-size: 1rem;
+    }
+
+    span {
+        font-size: 0.9rem;
+    }
+}
