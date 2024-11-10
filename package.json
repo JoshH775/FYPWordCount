@@ -3,13 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "public/index.js",
-  "scripts": {
-    "start": "http-server -c-1"
-  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "http-server": "^14.1.1"
-  }
+  "author": "Joshua Hickey",
+  "license": "ISC"
 }
