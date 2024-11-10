@@ -84,6 +84,16 @@ button:active {
     font-weight: bold;
 }
 
+#results-header {
+    text-decoration: underline;
+}
+
+#filters {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
 
 @media only screen and (max-width: 768px) {
     #root {

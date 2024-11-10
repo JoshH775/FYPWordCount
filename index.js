@@ -5,6 +5,14 @@ const textArea = document.querySelector('#text')
 const preFilterElement = document.querySelector('#pre-filter')
 const postFilterElement = document.querySelector('#post-filter')
 
+const filterElements = {
+  codeBlocks: document.querySelector('#filter-code-blocks'),
+  inlineCode: document.querySelector('#filter-inline-code'),
+  headings: document.querySelector('#filter-headings'),
+  tables: document.querySelector('#filter-tables'),
+  specialCharacters: document.querySelector('#filter-special-characters'),
+}
+
 
 
 submitButton.addEventListener('click', () => {
@@ -25,38 +33,43 @@ const clearButton = document.querySelector('#clear-button')
 
 clearButton.addEventListener('click', () => {
     textArea.value = ''
-    wordCountElement.textContent = ''
+    preFilterElement.textContent = '0'
+    postFilterElement.textContent = '0'
 })
 
 function countWordsFromMarkdown(text) {
-    // Remove Markdown code blocks (``` content ```)
-    let cleanedText = text.replace(/```[\s\S]*?```/g, '')
-  
-    // Remove Markdown inline code (`content`)
-    cleanedText = cleanedText.replace(/`([^`]*)`/g, '')
-  
-    // Remove Markdown headings
-    cleanedText = cleanedText.replace(/^\s*#+\s.*$/gm, '')
-  
-    // Remove Markdown tables
-    cleanedText = cleanedText.replace(/^\|.*\|$/gm, '')
-  
-    // Remove extra spaces and empty lines
-    cleanedText = cleanedText.replace(/^\s*$/gm, '')
-  
-    // Normalize spaces
-    cleanedText = cleanedText.replace(/\s+/g, ' ').trim()
-  
-    // Remove non-alphanumeric characters (except spaces) like punctuation marks
-    cleanedText = cleanedText.replace(/[^\w\s]/g, '')
-  
-    // Count words
-    const words = cleanedText.match(/\b\w+\b/g) || []
-  
-    return {
+  let cleanedText = text
+
+  if (filterElements.codeBlocks.checked) {
+      cleanedText = cleanedText.replace(/```[\s\S]*?```/g, '')
+  }
+
+  if (filterElements.inlineCode.checked) {
+      cleanedText = cleanedText.replace(/`([^`]*)`/g, '')
+  }
+
+  if (filterElements.headings.checked) {
+      cleanedText = cleanedText.replace(/^\s*#+\s.*$/gm, '')
+  }
+
+  if (filterElements.tables.checked) {
+      cleanedText = cleanedText.replace(/^\|.*\|$/gm, '')
+  }
+
+  if (filterElements.specialCharacters.checked) {
+      cleanedText = cleanedText.replace(/[^\w\s]/g, '')
+      cleanedText = cleanedText.replace(/^\s*$/gm, '')
+      cleanedText = cleanedText.replace(/\s+/g, ' ').trim()
+  }
+
+  const words = filterElements.specialCharacters.checked
+      ? cleanedText.match(/\b\w+\b/g) || []
+      : cleanedText.match(/\S+/g) || []
+
+  return {
       wordCount: words.length,
       words
-    }
   }
+}
   
   
