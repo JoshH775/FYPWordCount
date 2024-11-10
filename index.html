@@ -11,11 +11,17 @@
 <body>
     <div id="root">
         <h1>FYP Word Count</h1>
+        <h4>Words are counted after removing Markdown elements (code blocks, inline code, headings, tables), special characters, and extra spaces, leaving only plain text.</h4>
         <textarea id="text" placeholder="Enter your text here"></textarea>
         <div id="buttons">
             <button id="clear-button">Clear</button>
             <button id="submit-button">Count Words</button>
         </div>
-        <p id="result-p">Result: <span id="result"></span></p>
+        <h2 id="resutls-header">Results</h2>
+        <div id="results">
+            <p>Count w/ appendixes: <span id="pre-filter"></span></p>
+            <p>Count w/o appendixes: <span id="post-filter"></span></p>
+        </div>
+
     </div>
 </body>

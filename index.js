@@ -1,15 +1,23 @@
 
 const submitButton = document.querySelector('#submit-button')
 const textArea = document.querySelector('#text')
-const wordCountElement = document.querySelector('#result')
+
+const preFilterElement = document.querySelector('#pre-filter')
+const postFilterElement = document.querySelector('#post-filter')
 
 
 
 submitButton.addEventListener('click', () => {
     const text = textArea.value
-    const wordCount = countWordsFromMarkdown(text).wordCount
+
+    const words = text.trim().split(/\s+/)
+
+    const preFilter = words.filter(word => word.length > 0).length
+
+    const postFilter = countWordsFromMarkdown(text).wordCount
     
-    wordCountElement.textContent = wordCount
+    preFilterElement.textContent = preFilter
+    postFilterElement.textContent = postFilter
     
 })
 
