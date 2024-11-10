@@ -85,7 +85,7 @@ button:active {
 }
 
 
-@media (min-width: 768px) {
+@media only screen and (max-width: 768px) {
     #root {
         width: 100%;
         aspect-ratio: 1/1;
@@ -93,34 +93,15 @@ button:active {
         margin: 1rem;
     }
 
-    
-
     body {
         justify-content: center;
-        overflow-y: hidden;
-    }
-
-    h1 {
-        font-size: 4rem;
-    }
-
-    #text {
-        height: 80%;
-        font-size: 1.7rem;
-    }
-    
-    #buttons {
         width: 100%;
+        flex-grow: 1;
     }
 
-    button {
-        padding: 1rem 2rem;
-        font-size: 2rem;
-    }
+    
 
-    #result-p {
-        font-size: 2.4rem;
-    }
+
 }
 
 
