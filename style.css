@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 100dvh;
     padding: 0.5rem;
     color: #34495e;
 }
@@ -81,11 +81,9 @@ button:active {
 #result-p {
     color: #34495e;
     font-size: 1.2rem;
-}
-
-span {
     font-weight: bold;
 }
+
 
 @media (min-width: 768px) {
     #root {
@@ -95,23 +93,34 @@ span {
         margin: 1rem;
     }
 
+    
+
     body {
         justify-content: center;
+        overflow-y: hidden;
     }
-}
 
-/* New styles for mobile */
-@media (max-width: 767px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    #text {
+        height: 80%;
+        font-size: 1.7rem;
+    }
+    
+    #buttons {
+        width: 100%;
+    }
+
     button {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 1rem 2rem;
+        font-size: 2rem;
     }
 
     #result-p {
-        font-size: 1rem;
-    }
-
-    span {
-        font-size: 0.9rem;
+        font-size: 2.4rem;
     }
 }
+
+
