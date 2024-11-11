@@ -7,7 +7,7 @@ const postFilterElement = document.querySelector('#post-filter')
 
 const filterElements = {
   codeBlocks: document.querySelector('#filter-code-blocks'),
-  inlineCode: document.querySelector('#filter-inline-code'),
+  images: document.querySelector('#filter-images'),
   headings: document.querySelector('#filter-headings'),
   tables: document.querySelector('#filter-tables'),
   specialCharacters: document.querySelector('#filter-special-characters'),
@@ -42,10 +42,13 @@ function countWordsFromMarkdown(text) {
 
   if (filterElements.codeBlocks.checked) {
       cleanedText = cleanedText.replace(/```[\s\S]*?```/g, '')
+      cleanedText = cleanedText.replace(/`([^`]*)`/g, '')
+
   }
 
-  if (filterElements.inlineCode.checked) {
-      cleanedText = cleanedText.replace(/`([^`]*)`/g, '')
+  if (filterElements.images.checked) {
+    cleanedText = cleanedText.replace(/!\[.*?\]\(.*?\)/g, '')
+    cleanedText = cleanedText.replace(/!\[\[.*?\]\]/g, '')
   }
 
   if (filterElements.headings.checked) {
