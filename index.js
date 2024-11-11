@@ -60,6 +60,8 @@ function countWordsFromMarkdown(text) {
       cleanedText = cleanedText.replace(/[^\w\s]/g, '')
       cleanedText = cleanedText.replace(/^\s*$/gm, '')
       cleanedText = cleanedText.replace(/\s+/g, ' ').trim()
+      cleanedText = cleanedText.replace(/^(\s*[-*_]){3,}\s*$/gm, '')
+
   }
 
   const words = filterElements.specialCharacters.checked
